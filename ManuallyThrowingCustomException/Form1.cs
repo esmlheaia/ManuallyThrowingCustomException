@@ -23,7 +23,8 @@ namespace ManuallyThrowingCustomException
 
         private void frmAddProduct_Load(object sender, EventArgs e)
         {
-
+            //array list for list of product category
+            string[] ListOfProductCategory  = { "Beverages", "Bread/Bakery", "Canned/ Jarred Goods", "Dairy", "Frozen Goods", "Meat", "Personal Care", "Other" };
         }
     }
 }
