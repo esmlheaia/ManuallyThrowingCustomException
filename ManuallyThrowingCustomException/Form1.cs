@@ -33,8 +33,9 @@ namespace ManuallyThrowingCustomException
         public BindingSource showProductList;
         public frmAddProduct()
         {
-            InitializeComponent();
             showProductList = new BindingSource();
+            InitializeComponent();
+
         }
 
         private void frmAddProduct_Load(object sender, EventArgs e)
@@ -50,7 +51,7 @@ namespace ManuallyThrowingCustomException
                 "Personal Care", 
                 "Other" };
             
-            foreach (stirng category in ListOfProductCategory)
+            foreach (string category in ListOfProductCategory)
             {
                 cbCategory.Items.Add(category);
             }
@@ -76,7 +77,7 @@ namespace ManuallyThrowingCustomException
             {
                 if (!Regex.IsMatch(qty, @"^[0-9]"))
                 {
-                    throw new StringFormatException(qty);
+                    throw new NumberFormatException(qty);
                 }
             }
             catch (NumberFormatException ex)
