@@ -14,6 +14,18 @@ namespace ManuallyThrowingCustomException
 {
     public partial class frmAddProduct : Form
     {
+        class NumberFormatException : Exception
+        {
+            public NumberFormatException(string quantity) : base(quantity) { }
+        }
+        class StringFormatException : Exception
+        {
+            public StringFormatException(string name) : base(name) { }
+        }
+        class CurrencyFormatException : Exception
+        {
+            public CurrencyFormatException(string price) : base(price) { }
+        }
         // declare the variable and set an access modifier
         private string _ProductName, _Category, _MfgDate, _ExpDate, _Description;
         private int _Quantity;
@@ -28,11 +40,12 @@ namespace ManuallyThrowingCustomException
         private void frmAddProduct_Load(object sender, EventArgs e)
         {
             //array list for list of product category
-            string[] ListOfProductCategory = { "Beverages", "Bread/Bakery", "Canned/ Jarred Goods", "Dairy", "Frozen Goods", "Meat", "Personal Care", "Other" };
-        }
-        foreach(stirng category in ListOfProductCategory)
-        {
-            cbCategory.Items.Add(category);
+            string[] ListOfProductCategory = new string[] { "Beverages", "Bread/Bakery", "Canned/ Jarred Goods", "Dairy", "Frozen Goods", "Meat", "Personal Care", "Other" };
+            
+            foreach (stirng category in ListOfProductCategory)
+            {
+                cbCategory.Items.Add(category);
+            }
         }
             public string Product_Name(string name)
         {
@@ -64,8 +77,6 @@ namespace ManuallyThrowingCustomException
             showProductList.Add(new ProductClass(_ProductName, _Category, _MfgDate, _ExpDate, _Quantity, _SellPrice, _Description));
             gridViewProductList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             gridViewProductList.DataSource = showProductList;
-
-
         }
     }
 }
