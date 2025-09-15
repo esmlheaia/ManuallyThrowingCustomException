@@ -225,6 +225,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmAddProduct";
             this.Text = "Inventory";
+            this.Load += new System.EventHandler(this.frmAddProduct_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridViewProductList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

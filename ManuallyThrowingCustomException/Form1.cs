@@ -12,9 +12,18 @@ namespace ManuallyThrowingCustomException
 {
     public partial class frmAddProduct : Form
     {
+        // declare the variable and set an access modifier
+        private string _ProductName, _Category, _MfgDate, _ExpDate, _Description;
+        private int _Quantity;
+        private double _SellPrice;
         public frmAddProduct()
         {
             InitializeComponent();
+        }
+
+        private void frmAddProduct_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
